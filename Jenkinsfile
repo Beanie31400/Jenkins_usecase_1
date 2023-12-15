@@ -11,7 +11,7 @@ pipeline {
         
         stage('checkout') {
                 steps {
-                git branch: 'master',
+                git branch: 'refs/remotes/origin/main',
                 url: 'https://github.com/Beanie31400/Jenkins_usecase_1.git'
                 }
         }
