@@ -43,8 +43,8 @@ pipeline {
         stage('Push To DockerHub') {
             steps {
                 script {
-                    docker.withRegistry( 'https://registry.hub.docker.com ', registryCredential ) {
-                        dockerImage.push()
+                    withDockerRegistry([ credentialsId: "Jenkins_credentials", url: "https://hub.docker.com/" ]) {
+                    dockerImage.push()
                     }
                 }
             }
