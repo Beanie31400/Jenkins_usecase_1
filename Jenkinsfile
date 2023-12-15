@@ -11,8 +11,7 @@ pipeline {
         
         stage('checkout') {
                 steps {
-                git branch: 'refs/remotes/origin/main',
-                url: 'https://github.com/Beanie31400/Jenkins_usecase_1.git'
+                    checkout([$class: 'GitSCM', branches: [[name: 'refs/remotes/origin/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch:'**']], submoduleCfg: [], userRemoteConfigs: [[refspec:"+refs/pull/*:refs/remotes/origin/pr/*", refspec:"+refs/heads/*:refs/remotes/origin/*", url: 'https://github.com/Beanie31400/Jenkins_usecase_1.git']]])
                 }
         }
         
